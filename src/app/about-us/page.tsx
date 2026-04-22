@@ -305,15 +305,15 @@ export default function AboutUsPage() {
               {values.map((v) => (
                 <div
                   key={v.title}
-                  className="card-bordered p-7 flex flex-col gap-4 hover:shadow-md transition-shadow"
+                  className="card-bordered p-6 flex flex-col gap-3 hover:shadow-md transition-shadow"
                 >
-                  <div className="w-12 h-12 rounded-xl bg-accent-light text-accent flex items-center justify-center">
+                  <div className="w-11 h-11 rounded-xl bg-accent-light text-accent flex items-center justify-center">
                     {v.icon}
                   </div>
-                  <h3 className="heading-s font-bold text-primary">
+                  <h3 className="heading-xs font-bold text-primary">
                     {v.title}
                   </h3>
-                  <p className="text-m text-ink-muted">{v.body}</p>
+                  <p className="text-s text-ink-muted">{v.body}</p>
                 </div>
               ))}
             </div>
