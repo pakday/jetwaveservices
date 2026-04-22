@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import LeadForm from "@/components/LeadForm";
 
 /* ──────────────────────────────────────────────────────────────
    Partner / trust logo data
@@ -369,56 +370,66 @@ export default function HomePage() {
             priority
           />
           {/* Deep navy overlay — strong left, fades to accent right */}
-          <div
-            className="absolute inset-0"
-            style={{
-              background:
-                "linear-gradient(110deg, rgba(9,46,113,0.95) 0%, rgba(9,46,113,0.82) 52%, rgba(3,146,191,0.28) 100%)",
-            }}
-          />
-          <div className="inner-section relative w-full py-28 md:py-40">
-            <div className="max-w-2xl flex flex-col gap-7">
-              <span className="eyebrow text-accent">
-                Trusted by 1–500 Employee Businesses
-              </span>
-              <h1 className="heading-xl font-bold text-white leading-tight">
-                When big brand providers are down,{" "}
-                <span className="text-accent">
-                  Jetwave carries you through.
+          <div className="absolute inset-0 hero-overlay" />
+          <div className="inner-section relative w-full py-24 md:py-32">
+            <div className="grid grid-cols-1 lg:grid-cols-[1fr_420px] gap-12 xl:gap-20 items-center">
+              {/* ── Left: copy + CTAs ── */}
+              <div className="flex flex-col gap-7">
+                <span className="eyebrow text-accent">
+                  Trusted by 1–500 Employee Businesses
                 </span>
-              </h1>
-              <p className="text-l text-white/80 max-w-xl leading-relaxed">
-                The most reliable phone + internet provider for businesses that
-                can&apos;t afford downtime. Better rates, 24/7 US live support,
-                and minute-by-minute system monitoring.
-              </p>
-              {/* CTA buttons */}
-              <div className="flex flex-wrap gap-4">
-                <Link href="/get-a-quote" className="btn btn-accent btn-lg">
-                  Get a Quote
-                </Link>
-                <Link
-                  href="/try-us-free"
-                  className="btn btn-outline-white btn-lg"
-                >
-                  Try Us Free — 30 Days
-                </Link>
-              </div>
-              {/* Stats strip */}
-              <div className="mt-4 pt-8 border-t border-white/20 grid grid-cols-3 gap-6 sm:gap-10 w-full max-w-2xl">
-                {heroStats.map((s) => (
-                  <div
-                    key={s.label}
-                    className="flex flex-col gap-1 sm:gap-2 flex-1"
+                <h1 className="heading-xl font-bold text-white leading-tight">
+                  When big brand providers are down,{" "}
+                  <span className="text-accent">
+                    Jetwave carries you through.
+                  </span>
+                </h1>
+                <p className="text-l text-white/80 max-w-xl leading-relaxed">
+                  The most reliable phone + internet provider for businesses
+                  that can&apos;t afford downtime. Better rates, 24/7 US live
+                  support, and minute-by-minute system monitoring.
+                </p>
+                <div className="flex flex-wrap gap-4">
+                  <Link href="/get-a-quote" className="btn btn-accent btn-lg">
+                    Get a Quote
+                  </Link>
+                  <Link
+                    href="/try-us-free"
+                    className="btn btn-outline-white btn-lg"
                   >
-                    <span className="heading-m sm:heading-l font-bold text-accent leading-none">
-                      {s.value}
-                    </span>
-                    <span className="text-xs sm:text-sm font-medium uppercase tracking-widest text-white/60 leading-tight">
-                      {s.label}
-                    </span>
-                  </div>
-                ))}
+                    Try Us Free — 30 Days
+                  </Link>
+                </div>
+              </div>
+
+              {/* ── Right: Stats Grid ── */}
+              <div className="hidden lg:flex flex-col gap-3 items-stretch">
+                <div className="grid grid-cols-2 gap-3">
+                  {heroStats.map(
+                    (s, idx) =>
+                      idx < 2 && (
+                        <div
+                          key={s.label}
+                          className="rounded-xl p-5 bg-primary-dark/80 stat-glass border border-white/10 flex flex-col items-center justify-center gap-2 min-h-32"
+                        >
+                          <span className="heading-m font-bold text-accent leading-none">
+                            {s.value}
+                          </span>
+                          <span className="text-xs font-semibold uppercase tracking-wider text-white/60">
+                            {s.label}
+                          </span>
+                        </div>
+                      ),
+                  )}
+                </div>
+                <div className="rounded-xl p-5 bg-primary-dark/80 stat-glass border border-white/10 flex flex-col items-center justify-center gap-2 min-h-32">
+                  <span className="heading-m font-bold text-accent leading-none">
+                    {heroStats[2].value}
+                  </span>
+                  <span className="text-xs font-semibold uppercase tracking-wider text-white/60">
+                    {heroStats[2].label}
+                  </span>
+                </div>
               </div>
             </div>
           </div>
@@ -573,13 +584,7 @@ export default function HomePage() {
                       className="object-cover group-hover:scale-105 transition-transform duration-500"
                       sizes="(max-width: 768px) 100vw, 33vw"
                     />
-                    <div
-                      className="absolute inset-0"
-                      style={{
-                        background:
-                          "linear-gradient(to top, rgba(9,46,113,0.55) 0%, transparent 60%)",
-                      }}
-                    />
+                    <div className="absolute inset-0 service-img-overlay" />
                     <span className="absolute bottom-4 left-5 heading-s font-bold text-white">
                       {s.title}
                     </span>
@@ -656,8 +661,7 @@ export default function HomePage() {
                   alt="Business team using Jetwave system"
                   width={600}
                   height={480}
-                  className="rounded-2xl object-cover w-full h-120"
-                  style={{ boxShadow: "var(--shadow-xl)" }}
+                  className="rounded-2xl object-cover w-full h-120 shadow-xl"
                 />
                 {/* Floating stat card */}
                 <div className="absolute -top-6 -right-6 bg-white rounded-2xl px-6 py-5 shadow-xl border border-border">
@@ -710,13 +714,7 @@ export default function HomePage() {
         {/* ════════════════════════════════════════
             TESTIMONIALS
         ════════════════════════════════════════ */}
-        <section
-          className="section-l overflow-hidden"
-          style={{
-            background:
-              "linear-gradient(135deg, var(--color-primary) 0%, #0b3d8f 100%)",
-          }}
-        >
+        <section className="section-l overflow-hidden testimonials-section-bg">
           <div className="inner-section">
             <div className="text-center mb-14">
               <p className="eyebrow mb-3 text-accent">What Our Clients Say</p>
@@ -729,12 +727,7 @@ export default function HomePage() {
               {testimonials.map((t) => (
                 <div
                   key={t.name}
-                  className="rounded-2xl p-8 flex flex-col gap-5"
-                  style={{
-                    backgroundColor: "rgba(255,255,255,0.08)",
-                    border: "1px solid rgba(255,255,255,0.14)",
-                    backdropFilter: "blur(8px)",
-                  }}
+                  className="testimonial-card rounded-2xl p-8 flex flex-col gap-5"
                 >
                   {/* Quote mark */}
                   <svg
@@ -771,13 +764,7 @@ export default function HomePage() {
         ════════════════════════════════════════ */}
         <section className="section-l bg-off-white">
           <div className="inner-section">
-            <div
-              className="rounded-3xl overflow-hidden relative"
-              style={{
-                background:
-                  "linear-gradient(135deg, var(--color-accent) 0%, #0274a0 100%)",
-              }}
-            >
+            <div className="rounded-3xl overflow-hidden relative cta-banner-bg">
               {/* Background circles */}
               <div className="absolute -right-20 -top-20 w-80 h-80 rounded-full opacity-20 bg-white" />
               <div className="absolute -left-10 -bottom-24 w-64 h-64 rounded-full opacity-10 bg-white" />
@@ -813,6 +800,68 @@ export default function HomePage() {
                   </Link>
                 </div>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ════════════════════════════════════════
+            LEAD GENERATION FORM
+        ════════════════════════════════════════ */}
+        <section className="section-xl bg-light-gray">
+          <div className="inner-section">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 xl:gap-20 items-start">
+              {/* Left: copy + testimonial */}
+              <div className="flex flex-col gap-8">
+                <div>
+                  <p className="eyebrow mb-3">Get in Touch</p>
+                  <h2 className="heading-l font-bold text-primary leading-tight">
+                    Don&apos;t risk losing business or wasting team time.
+                  </h2>
+                  <p className="text-l text-ink-muted mt-5 leading-relaxed">
+                    Get a robust, feature-rich and absolutely dependable system
+                    — and 24/7 instant US support. So whatever happens, your
+                    phone and internet run glitch-free.
+                  </p>
+                </div>
+
+                {/* Sol Weiss testimonial */}
+                <figure className="bg-white rounded-2xl p-7 border border-border shadow-sm flex flex-col gap-4">
+                  <svg
+                    className="w-7 h-7 text-accent opacity-60"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                  >
+                    <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+                  </svg>
+                  <blockquote>
+                    <p className="text-m leading-relaxed text-ink-muted">
+                      I lost a lot of customers with other carriers because of
+                      lost or dropped calls — and painful, slow issue
+                      resolution. With Jetwave, everything works. When I ring
+                      the phone, they answer — and they give me the answer I
+                      need first time round. My customers love that their rates
+                      don&apos;t change; they actually pay what was quoted with
+                      no hidden fees.
+                    </p>
+                  </blockquote>
+                  <figcaption className="flex items-center gap-3 pt-4 border-t border-border">
+                    <div className="w-10 h-10 rounded-full bg-accent-light text-accent flex items-center justify-center font-bold text-sm shrink-0">
+                      SW
+                    </div>
+                    <div>
+                      <p className="font-bold text-sm text-primary">
+                        Sol Weiss
+                      </p>
+                      <p className="text-xs text-ink-muted">
+                        CEO, Advantech Solutions
+                      </p>
+                    </div>
+                  </figcaption>
+                </figure>
+              </div>
+
+              {/* Right: form */}
+              <LeadForm />
             </div>
           </div>
         </section>

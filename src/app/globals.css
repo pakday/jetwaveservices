@@ -553,3 +553,84 @@
     transform: translateX(-50%);
   }
 }
+
+/* ─────────────────────────────────────────────
+   GRADIENT BACKGROUNDS — no inline styles
+───────────────────────────────────────────── */
+
+/* Hero section overlay */
+.hero-overlay {
+  background: linear-gradient(
+    110deg,
+    rgba(9, 46, 113, 0.95) 0%,
+    rgba(9, 46, 113, 0.82) 52%,
+    rgba(3, 146, 191, 0.28) 100%
+  );
+}
+
+/* Service card image gradient overlay */
+.service-img-overlay {
+  background: linear-gradient(
+    to top,
+    rgba(9, 46, 113, 0.55) 0%,
+    transparent 60%
+  );
+}
+
+/* Testimonials section gradient bg */
+.testimonials-section-bg {
+  background: linear-gradient(135deg, var(--color-primary) 0%, #0b3d8f 100%);
+}
+
+/* Glassmorphism testimonial card */
+.testimonial-card {
+  background-color: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* CTA banner gradient bg */
+.cta-banner-bg {
+  background: linear-gradient(135deg, var(--color-accent) 0%, #0274a0 100%);
+}
+
+/* Stat card glass effect (hero) */
+.stat-glass {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* ─────────────────────────────────────────────
+   FORM INPUTS
+───────────────────────────────────────────── */
+.form-input {
+  width: 100%;
+  padding: 0.625rem 0.875rem;
+  border: 1.5px solid var(--color-border);
+  border-radius: 0.375rem;
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  color: var(--color-ink);
+  background-color: var(--color-white);
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
+  outline: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+.form-input:focus {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px rgba(3, 146, 191, 0.12);
+}
+.form-input::placeholder {
+  color: var(--color-ink-muted);
+  opacity: 0.55;
+}
+select.form-input {
+  appearance: auto;
+  -webkit-appearance: auto;
+  cursor: pointer;
+  padding-right: 2rem;
+}
