@@ -1,61 +1,66 @@
 # Colors
 
-#092E71 (primary may be because used more in logo)
-#0392BF (secondary or accent, it's used in site logo but less than above)
-Accent: accent color is not i see on client site explicitly. may be i need please think on it also i see #ff9611 color on few buttons but i think they used mistakenly because i dpn't think this kind of site uses this as much even thought it's not in site logo
+#092E71 is the primary color, likely due to its use in the logo.
+#0392BF is the secondary or accent color, also from the logo but used less prominently.
 
 ## Must follow
 
-You know the colors of site you can use different shades (alpha) but not more than 6 shades per color i mean use only required shades not forcefully or unnecessarily
-If you think something is missing please add like if i missed accent color or what ever color is needed for this site to use. You know context of these kinds of site.
-Please take care of colors contrast. it's very important
+Use site colors with different shades or alpha values, but keep it limited: no more than six shades per color. Use only the necessary shades, not extra or forced variations.
+If you think a color is missing, add it only when it is needed for this site. You understand this type of website and its context.
+Please ensure good color contrast. This is very important.
 
 # Font Family
 
-Please use font family which is best for this kind of website https://www.jetwaveservices.com/
-I want to impress my client to create professional site so this is the most important decision
-I like Outfit font family personally i hope it's good for this site all alone.
+Choose a font family that fits the style of https://www.jetwaveservices.com/. The goal is a professional, client-ready appearance.
+I personally like the Outfit font family, and it may work well for this site.
 
 # Global class naming
 
-I added globals.css file in instruction from another site of mine just to gave you idea how i use global classes so everything is aligned same. I don't want to use custom hard values but classes i defined like
-sections (clamp)
-container (clamp)
-headings (clamp)
-text (tailwind)
-max width (tailwind)
-shadows (tailwind)
-line heaight (tailwind, allowed extra classes creation if needed)
-letter spacing (tailwind)
+I added a `globals.css` file from another site to show how I use global classes. The goal is to keep everything aligned with that pattern.
+Avoid hard-coded custom values; use the classes I defined instead.
+Use classes for:
+
+- sections (clamp)
+- container (clamp)
+- headings (clamp)
+- text (Tailwind)
+- max width (Tailwind)
+- shadows (Tailwind)
+- line height (Tailwind; additional classes may be created if needed)
+- letter spacing (Tailwind)
 
 # Cards
 
-Please use cards of this website very professional and please keep all cards code in component i mean different kinds of cards. so i can change later if i needed and i don't have to change on everypage
+Use professional card styles similar to the website. Keep the card code in reusable components, including different card types, so it can be updated later without changing every page.
 
 # Headings & Text
 
-Please use text sizes from tailwind sizes of tshirt in px
-please use heading tshirt sizes as you can see in my global css file
+Use Tailwind text sizes according to the available size scale.
+Use heading sizes from the global CSS file.
 
 # Buttons
 
-Please use buttons classes like btn-primary, btn-secondary, btn-accent, btn-outline and so on
-please use sizes of buttons like btn-sm, btn-lg, btn-xl etc
-So i can manage buttons styles and sizes easily.
+Use button classes like `btn-primary`, `btn-secondary`, `btn-accent`, `btn-outline`, and so on.
+Use button size classes such as `btn-sm`, `btn-lg`, `btn-xl`, etc.
+This makes button styles and sizes easy to manage.
 
 # Structure
 
-I have added html pages of my client site with the slug of those urls in file names.
-I clean HTML from js and css so you can easily see the content and links
-I also added raw text for few pages.
-Please follow these pages for content already on my client site
+I added HTML pages from the client site, with file names based on the page slugs.
+The HTML was cleaned of JavaScript and CSS so the content and links are easy to read.
+I also added raw text for some pages.
+Please follow those pages for the existing content.
 
-# text content
+# Text content
 
-I added the html and text pages content and i strictly tells you to follow the content of my client site.
-I know if i limit you only from per page content then it's not good but you can get idea from any of the pages of my client site and i think you'll know enough context for building that one page and so on
-I strictly want to follow the content of my client site but if you see page content is thin which i have seen in this site pages please use similar wording and styling of my client site content i mean i don't want to just add dummy content but with context. I know you'll add content where needed with freedom but please add must where needed not much or extra useless. But i know you know this kind of website sections needs. So you are allowed to add useful must have pages content section but i also don't want to ignore client site aleasy content at all. and not use any dummy content.
+I added the HTML and text page content and I expect you to follow the client site content closely.
+If any page content is thin, use similar wording and styling from the client site rather than adding unrelated dummy content.
+Add content only where needed, and do not add unnecessary or excessive text.
+Use your judgment to add useful, required sections, but do not ignore the existing client site content.
 
-# images content
+# Images content
 
-I added site logo and brands images in the public folder but i see the client site does not have much images so please use unsplash images as suit with content. Please don't limit from my not having images of client site. THey have but i see those are not great for use. It would be great if you use unsplash images in my public folder and then use becuase i see if you add online images links then i see sometime many of them don't load so it created bad experice.
+I added the site logo and brand images in the public folder, but the client site does not have many strong images.
+Please use Unsplash-style images that suit the content.
+Do not limit yourself because the client site lacks good images.
+It is better to use images in the public folder rather than relying on external image links, which may fail to load and create a poor experience.
