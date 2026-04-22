@@ -64,3 +64,37 @@ I added the site logo and brand images in the public folder, but the client site
 Please use Unsplash-style images that suit the content.
 Do not limit yourself because the client site lacks good images.
 It is better to use images in the public folder rather than relying on external image links, which may fail to load and create a poor experience.
+
+# Code Practices
+
+## Color Classes (Tailwind)
+
+- Always use Tailwind utility classes for solid brand colors — never `style={{ color: "var(--color-xxx)" }}` for simple values.
+- `var(--color-primary)` → `text-primary` / `bg-primary`
+- `var(--color-accent)` → `text-accent` / `bg-accent`
+- `var(--color-ink-muted)` → `text-ink-muted`
+- `var(--color-accent-light)` + `var(--color-accent)` combined → `bg-accent-light text-accent`
+- `var(--color-border)` → `border-border`
+- `rgba(255,255,255,0.8)` → `text-white/80` (use Tailwind opacity modifiers)
+- Keep complex `linear-gradient`, `radial-gradient`, and `backdropFilter` as inline styles — they cannot be expressed as Tailwind utilities.
+
+## Container & Section Spacing
+
+- Always wrap section inner content in `.container` for max-width + auto margins.
+- Use `.section-s`, `.section-m`, `.section-l`, `.section-xl`, `.section-2xl`, `.section-3xl` for vertical section padding — **never** hard-code `py-16`, `py-20`, `py-24` etc.
+
+## Hover Interactions
+
+- Use CSS-only hover classes (`.footer-link`, `.footer-link-dim`, `.footer-heading` defined in `globals.css`) for footer link color transitions.
+- Avoid `onMouseEnter` / `onMouseLeave` JS handlers for simple color changes — they require `"use client"`, add overhead, and don't work on Server Components.
+- Server Components (without `"use client"`) cannot have event handler props — always use CSS `:hover` for styling.
+
+## Logo
+
+- Prefer the SVG logo (`/logos/jetwave-logo.svg`) over the PNG version.
+- Apply `brightness-0 invert` Tailwind classes when the logo sits on a dark background.
+
+## Navigation
+
+- Always include all service pages in the header nav: **Phone**, **VoIP**, **Internet** under a `Services` dropdown.
+- Keep `Get a Quote` and `Try Us Free` as primary CTA links in both the header and footer.
