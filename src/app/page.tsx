@@ -358,113 +358,67 @@ export default function HomePage() {
         {/* ════════════════════════════════════════
             HERO SECTION
         ════════════════════════════════════════ */}
-        <section
-          className="relative overflow-hidden"
-          style={{
-            background:
-              "linear-gradient(135deg, var(--color-primary) 0%, #0b3d8f 50%, #0a4499 100%)",
-          }}
-        >
-          {/* Background texture / decoration */}
+        <section className="relative flex items-center overflow-hidden">
+          {/* Background image */}
+          <Image
+            src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=1920&q=80"
+            alt="Modern business environment"
+            fill
+            className="object-cover object-center"
+            sizes="100vw"
+            priority
+          />
+          {/* Deep navy overlay — strong left, fades to accent right */}
           <div
-            className="absolute inset-0 opacity-10"
+            className="absolute inset-0"
             style={{
-              backgroundImage:
-                "radial-gradient(circle at 70% 50%, var(--color-accent) 0%, transparent 60%)",
+              background:
+                "linear-gradient(110deg, rgba(9,46,113,0.95) 0%, rgba(9,46,113,0.82) 52%, rgba(3,146,191,0.28) 100%)",
             }}
           />
-
-          <div className="inner-section relative py-24 md:py-32">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              {/* Left: copy */}
-              <div className="flex flex-col gap-6">
-                <p className="eyebrow text-accent">
-                  Trusted by 1–500 Employee Businesses
-                </p>
-                <h1 className="heading-xl font-extrabold text-white">
-                  When big brand providers are down,{" "}
-                  <span className="text-accent">
-                    Jetwave carries you through.
-                  </span>
-                </h1>
-                <p className="text-l leading-relaxed max-w-xl text-white/80">
-                  The most reliable phone + internet provider for businesses
-                  that can&apos;t afford downtime. Better rates, 24/7 US live
-                  support, and minute-by-minute system monitoring.
-                </p>
-
-                {/* Stats row */}
-                <div className="flex flex-wrap gap-8 mt-2">
-                  {heroStats.map((s) => (
-                    <div key={s.label} className="flex flex-col">
-                      <span className="heading-m font-extrabold text-accent">
-                        {s.value}
-                      </span>
-                      <span className="text-sm font-semibold tracking-wide uppercase text-white/65">
-                        {s.label}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-
-                {/* CTA buttons */}
-                <div className="flex flex-wrap gap-4 mt-2">
-                  <Link href="/get-a-quote" className="btn btn-accent btn-lg">
-                    Get a Quote
-                  </Link>
-                  <Link
-                    href="/try-us-free"
-                    className="btn btn-outline-white btn-lg"
-                  >
-                    Try Us Free — 30 Days
-                  </Link>
-                </div>
+          <div className="inner-section relative w-full py-28 md:py-40">
+            <div className="max-w-2xl flex flex-col gap-7">
+              <span className="eyebrow text-accent">
+                Trusted by 1–500 Employee Businesses
+              </span>
+              <h1 className="heading-xl font-bold text-white leading-tight">
+                When big brand providers are down,{" "}
+                <span className="text-accent">
+                  Jetwave carries you through.
+                </span>
+              </h1>
+              <p className="text-l text-white/80 max-w-xl leading-relaxed">
+                The most reliable phone + internet provider for businesses that
+                can&apos;t afford downtime. Better rates, 24/7 US live support,
+                and minute-by-minute system monitoring.
+              </p>
+              {/* CTA buttons */}
+              <div className="flex flex-wrap gap-4">
+                <Link href="/get-a-quote" className="btn btn-accent btn-lg">
+                  Get a Quote
+                </Link>
+                <Link
+                  href="/try-us-free"
+                  className="btn btn-outline-white btn-lg"
+                >
+                  Try Us Free — 30 Days
+                </Link>
               </div>
-
-              {/* Right: hero image */}
-              <div className="relative hidden lg:flex justify-end">
-                <div className="relative w-full max-w-lg">
-                  {/* Glow effect */}
-                  <div className="absolute -inset-4 rounded-3xl opacity-30 blur-2xl bg-accent" />
-                  <Image
-                    src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=85"
-                    alt="Modern business office with reliable communications"
-                    width={600}
-                    height={440}
-                    className="relative rounded-2xl object-cover w-full h-110"
-                    style={{ boxShadow: "0 32px 64px -16px rgba(0,0,0,0.5)" }}
-                    priority
-                  />
-                  {/* Floating badge */}
-                  <div className="absolute -bottom-5 -left-5 bg-white rounded-xl px-5 py-4 shadow-xl">
-                    <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-full bg-accent-light flex items-center justify-center shrink-0">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          className="w-5 h-5 text-accent"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth={2.2}
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M9 12l2 2 4-4M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"
-                          />
-                        </svg>
-                      </div>
-                      <div>
-                        <p className="text-xs font-bold uppercase tracking-wider text-primary">
-                          Uptime Guarantee
-                        </p>
-                        <p className="text-lg font-extrabold text-accent">
-                          99.99%
-                        </p>
-                      </div>
-                    </div>
+              {/* Stats strip */}
+              <div className="mt-4 pt-8 border-t border-white/20 grid grid-cols-3 gap-6 sm:gap-10 w-full max-w-2xl">
+                {heroStats.map((s) => (
+                  <div
+                    key={s.label}
+                    className="flex flex-col gap-1 sm:gap-2 flex-1"
+                  >
+                    <span className="heading-m sm:heading-l font-bold text-accent leading-none">
+                      {s.value}
+                    </span>
+                    <span className="text-xs sm:text-sm font-medium uppercase tracking-widest text-white/60 leading-tight">
+                      {s.label}
+                    </span>
                   </div>
-                </div>
+                ))}
               </div>
             </div>
           </div>
@@ -494,70 +448,6 @@ export default function HomePage() {
                     height={48}
                     className="h-10 w-auto object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all"
                   />
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* ════════════════════════════════════════
-            SECOND HERO — COMPARE / WHY SWITCH
-        ════════════════════════════════════════ */}
-        <section className="relative overflow-hidden section-l">
-          <Image
-            src="https://images.unsplash.com/photo-1521737852567-6949f3f9f2b5?w=1600&q=80"
-            alt="Business team in a modern office"
-            fill
-            className="object-cover"
-            sizes="100vw"
-          />
-          {/* Dark overlay */}
-          <div
-            className="absolute inset-0"
-            style={{
-              background:
-                "linear-gradient(to bottom, rgba(9,46,113,0.82) 0%, rgba(9,46,113,0.72) 100%)",
-            }}
-          />
-          <div className="inner-section relative text-center flex flex-col items-center gap-6">
-            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest bg-white/15 text-white border border-white/25">
-              Compare Us
-            </span>
-            <h2 className="heading-xl font-extrabold text-white max-w-3xl">
-              Still paying big-brand prices for big-brand frustration?
-            </h2>
-            <p className="text-l text-white/80 max-w-2xl">
-              Switch to Jetwave and get a dedicated account manager, 24/7 US
-              live support, and 99.99% uptime — all at 30–50% less than you pay
-              today.
-            </p>
-            <div className="flex flex-wrap justify-center gap-4 mt-2">
-              <Link href="/get-a-quote" className="btn btn-accent btn-lg">
-                See How Much You Save
-              </Link>
-              <Link
-                href="/try-us-free"
-                className="btn btn-outline-white btn-lg"
-              >
-                Try Free for 30 Days
-              </Link>
-            </div>
-            {/* Quick comparison pills */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-4 w-full max-w-2xl">
-              {[
-                { them: "Hold queues", us: "Direct engineer" },
-                { them: "Shared rep pool", us: "Your own manager" },
-                { them: "3-week SLAs", us: "<3 min response" },
-                { them: "Pay full price", us: "30–50% savings" },
-              ].map((c) => (
-                <div
-                  key={c.us}
-                  className="rounded-xl bg-white/10 border border-white/20 px-3 py-3 text-center"
-                >
-                  <p className="text-xs text-white/50 line-through mb-0.5">
-                    {c.them}
-                  </p>
-                  <p className="text-sm font-bold text-white">{c.us}</p>
                 </div>
               ))}
             </div>
