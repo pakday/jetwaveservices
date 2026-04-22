@@ -8,15 +8,15 @@ import LeadForm from "@/components/LeadForm";
    Partner / trust logo data
 ────────────────────────────────────────────────────────────── */
 const partners = [
-  { src: "/brand icons/b-h@3x.png", alt: "B&H Photo Video" },
-  { src: "/brand icons/qtms@3x.png", alt: "QTMS by AAA Communications" },
+  { src: "/brands/b-h@3x.png", alt: "B&H Photo Video" },
+  { src: "/brands/qtms@3x.png", alt: "QTMS by AAA Communications" },
   {
-    src: "/brand icons/statewide-central@3x.png",
+    src: "/brands/statewide-central@3x.png",
     alt: "Statewide Central Station",
   },
-  { src: "/brand icons/comcast@3x.png", alt: "Comcast" },
-  { src: "/brand icons/rccs@3x.jpg", alt: "RCCS" },
-  { src: "/brand icons/adorama@3x.png", alt: "Adorama" },
+  { src: "/brands/comcast@3x.png", alt: "Comcast" },
+  { src: "/brands/rccs@3x.jpg", alt: "RCCS" },
+  { src: "/brands/adorama@3x.png", alt: "Adorama" },
 ];
 
 /* ──────────────────────────────────────────────────────────────
