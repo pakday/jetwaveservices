@@ -53,7 +53,11 @@ export default function Header() {
           </a>
 
           {/* Login dropdown */}
-          <div className="relative">
+          <div
+            className="relative"
+            onMouseEnter={() => setLoginOpen(true)}
+            onMouseLeave={() => setLoginOpen(false)}
+          >
             <button
               onClick={() => setLoginOpen((v) => !v)}
               className="text-white text-sm font-semibold tracking-wide flex items-center gap-1 hover:opacity-80 transition-opacity"
@@ -69,7 +73,11 @@ export default function Header() {
               </svg>
             </button>
             {loginOpen && (
-              <div className="absolute right-0 top-full mt-2 bg-white shadow-lg rounded-lg overflow-hidden min-w-50 border border-border">
+              <div
+                className="absolute right-0 top-full bg-white shadow-lg rounded-lg overflow-hidden min-w-50 border border-border"
+                onMouseEnter={() => setLoginOpen(true)}
+                onMouseLeave={() => setLoginOpen(false)}
+              >
                 {loginLinks.map((l) => (
                   <a
                     key={l.href}
@@ -104,7 +112,11 @@ export default function Header() {
         {/* Desktop nav links */}
         <ul className="hidden lg:flex items-center gap-1">
           {/* Services dropdown */}
-          <li className="relative">
+          <li
+            className="relative"
+            onMouseEnter={() => setServicesOpen(true)}
+            onMouseLeave={() => setServicesOpen(false)}
+          >
             <button
               onClick={() => setServicesOpen((v) => !v)}
               className="px-4 py-2 text-sm font-semibold rounded-md transition-colors text-ink hover:text-accent flex items-center gap-1"
@@ -120,7 +132,11 @@ export default function Header() {
               </svg>
             </button>
             {servicesOpen && (
-              <div className="absolute left-0 top-full mt-2 bg-white shadow-lg rounded-xl overflow-hidden min-w-44 border border-border">
+              <div
+                className="absolute left-0 top-full bg-white shadow-lg rounded-xl overflow-hidden min-w-44 border border-border"
+                onMouseEnter={() => setServicesOpen(true)}
+                onMouseLeave={() => setServicesOpen(false)}
+              >
                 {serviceLinks.map((s) => (
                   <Link
                     key={s.href}
