@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Header from "@/components/Header";
@@ -247,6 +248,245 @@ const allFeatures = [
   "Mobile App",
 ];
 
+/* ──────────────────────────────────────────────────────────────
+   Pricing plans
+────────────────────────────────────────────────────────────── */
+const pricingPlans = [
+  {
+    name: "Essentials",
+    price: "Starting at $19.95",
+    period: "/ mo per user",
+    badge: null,
+    description:
+      "Core calling and admin tools for small teams getting started with VoIP.",
+    highlights: [
+      "Unlimited US & Canada Calling",
+      "Main Company Number",
+      "24×7 Customer Support",
+      "Ring Groups & Basic Call Management",
+    ],
+    cta: "Get a Quote",
+    href: "/get-a-quote",
+    featured: false,
+  },
+  {
+    name: "Pro",
+    price: "Starting at $24.95",
+    period: "/ mo per user",
+    badge: null,
+    description:
+      "Mobile apps, video conferencing, and advanced calling capabilities.",
+    highlights: [
+      "One Direct-Dial Number Per User",
+      "Desktop & Mobile Apps (iOS + Android)",
+      "Video & Conference Calling",
+      "Call Analytics & Leaderboards",
+    ],
+    cta: "Get a Quote",
+    href: "/get-a-quote",
+    featured: false,
+  },
+  {
+    name: "Pro Plus",
+    price: "Starting at $27.95",
+    period: "/ mo per user",
+    badge: "Most Popular",
+    description:
+      "Full-featured platform with CRM integrations, text messaging, and team chat.",
+    highlights: [
+      "Call Recording & Virtual Fax",
+      "Find Me, Follow Me",
+      "Text Messaging & Team Chat",
+      "CRM Integrations (Salesforce, HubSpot & more)",
+    ],
+    cta: "Get a Quote",
+    href: "/get-a-quote",
+    featured: true,
+  },
+  {
+    name: "Enterprise",
+    price: "Custom",
+    period: "pricing",
+    badge: null,
+    description:
+      "Tailored solutions with dedicated support for larger organizations.",
+    highlights: [
+      "Everything in Pro Plus",
+      "Bulk SMS Packages",
+      "Dedicated Account Manager",
+      "Custom Onboarding & SLAs",
+    ],
+    cta: "Contact Us",
+    href: "/contact-us",
+    featured: false,
+  },
+];
+
+/* ──────────────────────────────────────────────────────────────
+   Feature comparison table data
+────────────────────────────────────────────────────────────── */
+const featureCategories: {
+  category: string;
+  features: { name: string; plans: boolean[] }[];
+}[] = [
+  {
+    category: "Key Calling Features",
+    features: [
+      {
+        name: "Unlimited Calling in U.S. and Canada",
+        plans: [true, true, true, true],
+      },
+      { name: "Low International Rates", plans: [true, true, true, true] },
+      { name: "FREE Number Transfer", plans: [true, true, true, true] },
+      { name: "Main Company Number", plans: [true, true, true, true] },
+      {
+        name: "One Direct-Dial Number Per User",
+        plans: [false, true, true, true],
+      },
+      { name: "Easy Installation", plans: [true, true, true, true] },
+    ],
+  },
+  {
+    category: "Administration & Support",
+    features: [
+      { name: "User Management Portal", plans: [true, true, true, true] },
+      {
+        name: "Multi-site Admin and Management",
+        plans: [true, true, true, true],
+      },
+      { name: "Bulk User Import", plans: [true, true, true, true] },
+      { name: "24×7 Customer Support", plans: [true, true, true, true] },
+    ],
+  },
+  {
+    category: "Call Management Features",
+    features: [
+      { name: "AI Transcriptions *", plans: [true, true, true, true] },
+      { name: "Virtual Receptionist *", plans: [true, true, true, true] },
+      { name: "Call Park", plans: [true, true, true, true] },
+      { name: "Call Park for Desktop App", plans: [true, true, true, true] },
+      { name: "Music On Hold", plans: [true, true, true, true] },
+      { name: "Transfer Music", plans: [true, true, true, true] },
+      { name: "Extension Dialing", plans: [true, true, true, true] },
+      { name: "Extension Monitoring", plans: [true, true, true, true] },
+      { name: "Call Forwarding", plans: [true, true, true, true] },
+      { name: "Virtual Extensions", plans: [true, true, true, true] },
+      { name: "Voicemail", plans: [true, true, true, true] },
+      { name: "Call Transfer", plans: [true, true, true, true] },
+      { name: "Company Directory", plans: [true, true, true, true] },
+      { name: "Call Logs", plans: [true, true, true, true] },
+      { name: "Conference Bridge", plans: [false, false, true, true] },
+      {
+        name: "Forward Calls During Device Outages",
+        plans: [true, true, true, true],
+      },
+      { name: "Virtual Fax", plans: [false, false, true, true] },
+      { name: "Distinctive Ringtones", plans: [false, true, true, true] },
+      { name: "3-Way Calling", plans: [true, true, true, true] },
+      { name: "Call Blocking", plans: [true, true, true, true] },
+      { name: "Intercom", plans: [true, true, true, true] },
+      { name: "Overhead Paging", plans: [true, true, true, true] },
+      { name: "Paging Groups", plans: [true, true, true, true] },
+      { name: "IP Phone Paging", plans: [true, true, true, true] },
+      { name: "Flexible Numbering", plans: [true, true, true, true] },
+      { name: "3-Digit Extensions", plans: [true, true, true, true] },
+      { name: "Enhanced Call Blocking", plans: [false, true, true, true] },
+      { name: "Voicemail Transcription", plans: [false, true, true, true] },
+      { name: "Call Recording", plans: [false, false, true, true] },
+      { name: "Dynamic Caller ID", plans: [false, true, true, true] },
+      { name: "Hot Desking", plans: [false, true, true, true] },
+      { name: "Find Me, Follow Me", plans: [false, false, true, true] },
+      { name: "Shared Voicemail Boxes", plans: [false, false, true, true] },
+      { name: "Call Screening", plans: [false, false, true, true] },
+    ],
+  },
+  {
+    category: "Mobility Features",
+    features: [
+      { name: "Desktop App for Windows", plans: [false, true, true, true] },
+      { name: "Desktop App for Mac", plans: [false, true, true, true] },
+      {
+        name: "Desktop App for Google Chrome",
+        plans: [false, true, true, true],
+      },
+      { name: "Mobile App for iOS", plans: [false, true, true, true] },
+      { name: "Mobile App for Android", plans: [false, true, true, true] },
+      { name: "Simultaneous Ring", plans: [true, true, true, true] },
+      {
+        name: "Voicemail-to-Email Audio Files",
+        plans: [true, true, true, true],
+      },
+      { name: "Extension Dialing to App", plans: [false, true, true, true] },
+      { name: "Call Transfer from App", plans: [false, true, true, true] },
+      { name: "Virtual Fax from App", plans: [false, true, true, true] },
+    ],
+  },
+  {
+    category: "Team Collaboration",
+    features: [
+      { name: "Conference Calling", plans: [false, true, true, true] },
+      { name: "Video Conferencing", plans: [false, true, true, true] },
+      {
+        name: "Microsoft Office 365 Calendar Integration",
+        plans: [false, true, true, true],
+      },
+      { name: "Google Calendar Integration", plans: [false, true, true, true] },
+      { name: "Simultaneous Screen Sharing", plans: [false, true, true, true] },
+      {
+        name: "Video Conferencing Recording",
+        plans: [false, false, true, true],
+      },
+      { name: "Online Whiteboarding", plans: [false, false, true, true] },
+      { name: "Team Chat", plans: [false, false, true, true] },
+      { name: "Team Presence", plans: [false, false, true, true] },
+    ],
+  },
+  {
+    category: "Text Messaging",
+    features: [
+      { name: "Text Messaging", plans: [false, false, true, true] },
+      { name: "Bulk SMS Packages", plans: [false, false, false, true] },
+      { name: "Scheduled Messages", plans: [false, false, true, true] },
+      { name: "Messaging Templates", plans: [false, false, true, true] },
+      { name: "One-to-Many Messaging", plans: [false, false, true, true] },
+    ],
+  },
+  {
+    category: "Customer Engagement",
+    features: [
+      { name: "Ring Groups", plans: [true, true, true, true] },
+      { name: "Caller Info Match", plans: [false, true, true, true] },
+      { name: "Call Queuing", plans: [false, false, true, true] },
+      { name: "Shift-to-Text", plans: [false, false, true, true] },
+      { name: "Auto Dialer", plans: [false, false, true, true] },
+    ],
+  },
+  {
+    category: "Integrations",
+    features: [
+      { name: "Salesforce", plans: [false, false, true, true] },
+      { name: "Microsoft Dynamics", plans: [false, false, true, true] },
+      { name: "Zoho", plans: [false, false, true, true] },
+      { name: "Freshdesk", plans: [false, false, true, true] },
+      { name: "NexHealth", plans: [false, true, true, true] },
+      { name: "Clio", plans: [false, false, true, true] },
+      { name: "AgencyZoom", plans: [false, false, true, true] },
+      { name: "HubSpot", plans: [false, false, true, true] },
+      { name: "Square", plans: [false, false, true, true] },
+      { name: "Jobber", plans: [false, false, true, true] },
+      { name: "QuickBooks Online", plans: [false, false, true, true] },
+    ],
+  },
+  {
+    category: "Analytics",
+    features: [
+      { name: "Call Analytics", plans: [false, true, true, true] },
+      { name: "Call Leaderboards", plans: [false, true, true, true] },
+      { name: "Fax Analytics", plans: [false, true, true, true] },
+    ],
+  },
+];
+
 export default function VoipPage() {
   return (
     <>
@@ -469,6 +709,226 @@ export default function VoipPage() {
               >
                 Request Equipment Info
               </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* ════════════════════════════════════════
+            PRICING PLANS + COMPARISON TABLE
+        ════════════════════════════════════════ */}
+        <section className="section-xl bg-light-gray">
+          <div className="inner-section">
+            {/* Header */}
+            <div className="text-center mb-14">
+              <p className="eyebrow mb-3">Flexible Pricing</p>
+              <h2 className="heading-l font-bold text-primary">
+                Plans that grow with your business.
+              </h2>
+              <p className="text-l mt-4 max-w-2xl mx-auto text-ink-muted">
+                Every plan includes 24×7 US support and the core calling
+                features your team needs. Upgrade or switch anytime — no
+                penalties, no hassle.
+              </p>
+            </div>
+
+            {/* Plan Cards */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+              {pricingPlans.map((plan) => (
+                <div
+                  key={plan.name}
+                  className={`card-bordered p-7 flex flex-col gap-5 relative${
+                    plan.featured
+                      ? " overflow-visible border-accent shadow-lg"
+                      : ""
+                  }`}
+                  style={
+                    plan.featured
+                      ? {
+                          boxShadow:
+                            "0 0 0 2px var(--color-accent), var(--shadow-lg)",
+                        }
+                      : undefined
+                  }
+                >
+                  {plan.badge && (
+                    <div className="absolute -top-3.5 left-1/2 -translate-x-1/2">
+                      <span className="bg-accent text-white text-xs font-bold py-1 px-4 rounded-full uppercase tracking-wider whitespace-nowrap">
+                        {plan.badge}
+                      </span>
+                    </div>
+                  )}
+
+                  <div>
+                    <p
+                      className={`font-bold text-xs uppercase tracking-wider mb-2${
+                        plan.featured ? " text-accent" : " text-ink-muted"
+                      }`}
+                    >
+                      {plan.name}
+                    </p>
+                    {plan.price === "Custom" ? (
+                      <p className="heading-m font-extrabold text-primary">
+                        Custom Pricing
+                      </p>
+                    ) : (
+                      <div>
+                        <p className="heading-s font-extrabold text-primary leading-tight">
+                          {plan.price}
+                        </p>
+                        <p className="text-s text-ink-muted mt-0.5">
+                          {plan.period}
+                        </p>
+                      </div>
+                    )}
+                    <p className="text-s text-ink-muted mt-3 leading-relaxed">
+                      {plan.description}
+                    </p>
+                  </div>
+
+                  <ul className="flex flex-col gap-2.5 flex-1">
+                    {plan.highlights.map((h) => (
+                      <li
+                        key={h}
+                        className="flex items-start gap-2 text-s text-ink"
+                      >
+                        <svg
+                          className="w-4 h-4 text-accent shrink-0 mt-0.5"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                          strokeWidth={2.5}
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M5 13l4 4L19 7"
+                          />
+                        </svg>
+                        {h}
+                      </li>
+                    ))}
+                  </ul>
+
+                  <Link
+                    href={plan.href}
+                    className={`btn btn-lg w-full text-center${
+                      plan.featured ? " btn-accent" : " btn-outline"
+                    }`}
+                  >
+                    {plan.cta}
+                  </Link>
+                </div>
+              ))}
+            </div>
+
+            {/* Full comparison table */}
+            <div>
+              <h3 className="heading-s font-bold text-primary text-center mb-8">
+                Compare all features
+              </h3>
+
+              <div className="overflow-x-auto rounded-2xl border border-border shadow-sm bg-white">
+                <table className="w-full text-left border-collapse min-w-160">
+                  <thead>
+                    <tr>
+                      <th className="bg-light-gray px-5 py-4 text-s font-semibold text-ink w-[42%] border-b border-border">
+                        Feature
+                      </th>
+                      {pricingPlans.map((plan) => (
+                        <th
+                          key={plan.name}
+                          className={`px-4 py-4 text-center text-s font-bold w-[14.5%] border-b border-border${
+                            plan.featured
+                              ? " bg-accent text-white"
+                              : " bg-light-gray text-primary"
+                          }`}
+                        >
+                          {plan.name}
+                        </th>
+                      ))}
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {featureCategories.map((cat) => (
+                      <Fragment key={cat.category}>
+                        {/* Category row */}
+                        <tr key={`cat-${cat.category}`}>
+                          <td
+                            colSpan={5}
+                            className="px-5 py-3 text-xs font-bold uppercase tracking-wider text-primary bg-primary/5 border-t-2 border-border"
+                          >
+                            {cat.category}
+                          </td>
+                        </tr>
+
+                        {/* Feature rows */}
+                        {cat.features.map((feat, idx) => (
+                          <tr
+                            key={feat.name}
+                            className={
+                              idx % 2 === 0 ? "bg-white" : "bg-off-white"
+                            }
+                          >
+                            <td className="px-5 py-3 text-s text-ink border-b border-border">
+                              {feat.name}
+                            </td>
+                            {feat.plans.map((included, pIdx) => (
+                              <td
+                                key={pIdx}
+                                className={`px-4 py-3 text-center border-b border-border${
+                                  pricingPlans[pIdx].featured
+                                    ? " bg-accent-light/50"
+                                    : ""
+                                }`}
+                              >
+                                {included ? (
+                                  <svg
+                                    className="w-4 h-4 text-accent mx-auto"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                    strokeWidth={2.5}
+                                  >
+                                    <path
+                                      strokeLinecap="round"
+                                      strokeLinejoin="round"
+                                      d="M5 13l4 4L19 7"
+                                    />
+                                  </svg>
+                                ) : (
+                                  <span className="text-border font-medium select-none">
+                                    —
+                                  </span>
+                                )}
+                              </td>
+                            ))}
+                          </tr>
+                        ))}
+                      </Fragment>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+
+              <p className="text-s text-ink-muted mt-4 text-center italic">
+                * AI Transcriptions and Virtual Receptionist require a minimum
+                of 10 registrations.
+              </p>
+            </div>
+
+            {/* Bottom CTA */}
+            <div className="mt-12 text-center">
+              <p className="text-m text-ink-muted mb-5">
+                Not sure which plan fits your team? Our specialists can help.
+              </p>
+              <div className="flex flex-wrap gap-4 justify-center">
+                <Link href="/get-a-quote" className="btn btn-accent btn-lg">
+                  Get a Quote
+                </Link>
+                <Link href="/contact-us" className="btn btn-outline btn-lg">
+                  Talk to Sales
+                </Link>
+              </div>
             </div>
           </div>
         </section>
